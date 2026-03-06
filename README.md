@@ -4,11 +4,12 @@
 
 [![Website Status](https://img.shields.io/website?url=https://node.softmaster.at)](https://node.softmaster.at)
 
+![License](https://img.shields.io/github/license/Nodrex-86/softmaster.at-nodejs)
+![Last Commit](https://img.shields.io/github/last-commit/Nodrex-86/softmaster.at-nodejs)
+
 This is the Node.js/Express implementation of [softmaster.at](https://softmaster.at). 
 The project features a dynamic EJS-based templating system with multi-language support.
 
-![License](https://img.shields.io/github/license/Nodrex-86/softmaster.at-nodejs)
-![Last Commit](https://img.shields.io/github/last-commit/Nodrex-86/softmaster.at-nodejs)
 ![Node.js](https://img.shields.io/badge/Node.js-24.x-green)
 ![Express](https://img.shields.io/badge/Express-5.x-black)
 ![EJS](https://img.shields.io/badge/EJS-template-orange)
@@ -40,10 +41,10 @@ with a manual toggle available in the navigation.
 - **Contact:** Secure nodemailer integration using environment variables.
 
 ## Latest Updates
-- ✅ **SSL & Custom Domain:** Fully configured with Let's Encrypt via Render.
-- ✅ **Error Handling:** Added custom 404 page for better UX and build stability.
-- ✅ **Email Integration:** Optimized SMTP transport for production environments.
-- ✅ **Security:** Cloudflare Turnstile integrated for spam protection.
+- ✅ **Infrastructure:** Successfully bypassed SMTP port blocks on Render using SendGrid.
+- ✅ **SSL & Custom Domain:** Fully configured with Let's Encrypt at [node.softmaster.at](https://node.softmaster.at).
+- ✅ **Stability:** Resolved 404 view lookup errors for Linux environments (Render/Ubuntu).
+
 
 ## Tech Stack
 
