@@ -1,0 +1,44 @@
+<footer class="mt-20 border-t border-[var(--shadow)] bg-[var(--card-bg)]/50 backdrop-blur-md py-12">
+    <div class="container mx-auto px-5 text-center">
+        <div class="mb-8">
+            <h3 class="text-2xl font-black tracking-tighter text-[var(--accent-blue)]">SOFTMASTER</h3>
+            <p class="text-sm text-[var(--text-dim)] mt-2"><%= lang.footer_text  %></p>
+        </div>
+
+        <div class="flex justify-center items-center gap-6 mb-8 text-sm font-semibold">
+            <a href="/imprint" class="hover:text-[var(--accent-blue)] transition-colors"><%= lang.imprint_title %></a>
+            <span class="text-[var(--text-dim)]/30">|</span>
+            <a href="/privacy" class="hover:text-[var(--accent-blue)] transition-colors"><%= lang.privacy_name %></a>
+        </div>
+
+        <div class="text-xs text-[var(--text-dim)]">
+            &copy; <%= new Date().getFullYear() %> <span class="font-bold text-[var(--text-main)]">SoftMaster</span>. All rights reserved.
+        </div>
+    </div>
+</footer>
+    <!-- Cookie Banner: Position Fixed & Z-Index 10000 -->
+    <div id="cookie-banner" class="fixed bottom-10 left-5 right-5 mx-auto max-w-[600px] z-[10000] p-6 bg-[var(--card-bg)]/10 backdrop-blur-2xl border border-[var(--accent-blue)] rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] hidden opacity-0 translate-y-10 transition-all duration-500 ease-out">
+        
+        <h4 class="text-lg font-bold mb-2 text-[var(--text-main)]">
+            <%= lang.cookie_title ?? 'Cookie-Einstellungen' %>
+        </h4>
+        
+        <p class="text-sm text-[var(--text-dim)] mb-5 leading-relaxed">
+            <%= lang.cookie_desc ?? 'Wir nutzen Google Analytics, um unsere Services in Wien zu optimieren.' %> 
+            <br>
+            <a href="/privacy" class="text-[var(--accent-blue)] font-bold hover:underline">
+                <%= lang.privacy_title %>
+            </a>
+        </p>
+        
+        <div class="flex justify-end gap-3">
+            <button id="cookie-decline" class="px-5 py-2 text-xs text-[var(--text-main)] font-bold rounded-xl border border-gray-300 dark:border-gray-600 hover:bg-red-500/10 transition-all">
+                <%= lang.cookie_decline ?? 'Ablehnen' %>
+            </button>
+            <button id="cookie-accept" class="px-6 py-2 text-xs font-bold rounded-xl bg-[var(--btn-primary)] hover:bg-sky-600 text-[var(--text-main)] shadow-lg hover:shadow-[#38bdf8]/20 hover:scale-105 active:scale-95 transition-all" onclick="consentGrantedAdStorage">
+                <%= lang.cookie_accept ?? 'Akzeptieren' %>
+            </button>
+        </div>
+    </div>
+</body>
+</html>

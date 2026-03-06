@@ -1,0 +1,148 @@
+<%- include('partials/header') %>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero relative overflow-hidden min-h-[70vh] flex items-center justify-center py-20">
+        <canvas id="hero-canvas" class="absolute inset-0 z-0"></canvas>
+        <div class="container relative z-10 px-5 text-center max-w-4xl mx-auto pt-20">
+            <h1 class="animate-on-scroll text-5xl md:text-7xl font-black tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-r from-sky-400 to-emerald-400">
+                <%= lang.home_h1 %>
+            </h1>
+            <h2 class="animate-on-scroll text-2xl md:text-3xl font-semibold mb-8 opacity-90">
+                <%= lang.home_intro %>
+            </h2>
+            <p class="animate-on-scroll text-lg md:text-xl text-gray-400 leading-relaxed text-justify max-w-2xl mx-auto mb-10">
+                <%= lang.home_text %>
+            </p>
+            <strong class="animate-on-scroll block text-sky-500 tracking-widest uppercase text-sm font-bold">
+                <%= lang.home_slogan %>
+            </strong>
+        </div>
+    </section>
+
+    <!-- Highlights Slider -->
+    <section class="py-12 md:py-20">
+        <div class="container mx-auto px-5">
+            <div class="relative overflow-hidden rounded-[2.5rem] bg-[var(--text-dim)]/5 border border-[#94a3b8]/10 backdrop-blur-2xl shadow-[0_5px_20px_rgba(0,0,0,0.3)] h-[650px] md:h-[550px]" id="main-hero-highlights">
+                
+                <% highlights.forEach((item, index) => { %>
+                    <div class="h-slide <%= (index === 0) ? 'active' : '' %> absolute inset-0 flex flex-col md:flex-row items-center">
+                        
+                        <!-- LEFT: Image -->
+                        <div class="w-full md:w-1/2 h-1/2 md:h-full overflow-hidden relative">
+                            <img src="/<%= item.image %>" 
+                                 class="w-full h-full object-cover h-img" 
+                                 alt="<%= item.title %>">
+                            <div class="absolute inset-0 bg-gradient-to-r from-[#2B4F9C]/20 to-transparent"></div>
+                        </div>
+
+                        <!-- RIGHT: Content -->
+                        <div class="w-full md:w-1/2 p-8 md:p-16 space-y-6 bg-gradient-to-br from-white/[0.02] to-transparent h-full flex flex-col justify-center">
+                            <div class="space-y-4 overflow-hidden">
+                                <h3 class="text-4xl md:text-5xl font-black tracking-tight text-[var(--text-main)] leading-tight h-title">
+                                    <%= item.title %>
+                                </h3>
+                                <div class="w-20 h-1 bg-sky-500 rounded-full origin-left h-bar"></div>
+                            </div>
+                            
+                            <p class="text-[var(--text-dim)]-300 text-lg md:text-xl leading-relaxed h-desc">
+                                <%= lang[item.desc_key] %>
+                            </p>
+
+                            <div class="pt-4 h-btn">
+                                <a href="<%= item.link %>" target="_blank" class="inline-flex items-center gap-3 px-10 py-5 bg-[var(--btn-primary)] hover:bg-sky-600 text-[var(--text-main)] hover:shadow-[#38bdf8]/20 font-extrabold rounded-2xl transition-all hover:scale-105 shadow-xl">
+                                    <span><%= lang[item.hgl_btn_key] %></span>
+                                    <span class="text-2xl">→</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+
+                <!-- Navigation Dots -->
+                <div class="absolute bottom-10 right-10 flex items-center gap-6 z-30">
+                    <div class="flex space-x-3">
+                        <% highlights.forEach((item, index) => { %>
+                            <button data-index="<%= index %>" onclick="moveHighlight(this.dataset.index)" class="h-dot w-3 h-3 rounded-full bg-[#28869d]/20 transition-all duration-500 hover:bg-white/50 <%= (index === 0) ? 'active' : '' %>"
+                                    aria-label="Go to slide <%= index + 1 %>">
+                            </button>
+                        <% }) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="container mx-auto py-24 px-5" id="services">
+        <h2 class="animate-on-scroll text-4xl font-bold mb-16 text-center italic"><%= lang.services_title %></h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <% services.forEach(s => { %>
+                <div class="animate-on-scroll group relative p-6 rounded-2xl bg-white/5 border border-[<%= s.bg_color %>]/20 hover:border-[<%= s.bg_color %>]/50 transition-all duration-500 cursor-pointer hover:-translate-y-2 flex flex-col items-center text-center" 
+                     style="box-shadow: 0 10px 30px var(--shadow);"
+                     onclick="location.href='/services#<%= s.id %>'">
+                    
+                    <div class="mb-6 w-20 h-20 rounded-2xl text-[<%= s.text_color %>] transition-transform duration-500 transform-gpu group-hover:scale-110 group-hover:bg-[<%= s.bg_color %>]/10 flex items-center justify-center">
+                        <!-- Hier laden wir das Icon einfach als <img> aus dem public Ordner -->
+                        <%- getSvg(s.img) %>
+                    </div>
+
+                    <h3 class="text-xl font-bold mb-4" style="--text-color: <%= s.text_color %>; color: var(--text-color);"><%= lang[s.name_key] %></h3>
+                    <p class="text-gray-400 leading-relaxed"><%= lang[s.desc_key] %></p>
+                    
+                    <div class="absolute -inset-px rounded-3xl bg-gradient-to-br from-[<%= s.bg_color %>]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity blur-lg -z-10"></div>
+                </div>
+            <% }) %>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="container mx-auto py-24 px-5" id="projects">
+        <h2 class="animate-on-scroll text-4xl font-bold mb-16 text-center italic">
+            <%= lang.projects_title %>
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <% projects.forEach(p => { %>
+                <div class="group relative h-[400px] rounded-[2.5rem] border border-[<%= p.text_color %>]/20 overflow-hidden cursor-pointer shadow-2xl animate-on-scroll transition-all duration-700 hover:scale-[1.02]"  style="box-shadow: 0 10px 30px var(--shadow);" onclick="location.href='/projects#<%= p.id %>'">
+                    
+                    <!-- 1. Hintergrundbild mit Zoom-Effekt -->
+                    <div class="absolute inset-0 z-0 flex items-center justify-center bg-[var(--card-bg)]/20 transition-transform duration-1000 group-hover:scale-110">
+                        <img src="<%= p.img%>" 
+                            class="h-full w-auto object-contain grayscale-[40%] group-hover:grayscale-0" 
+                            loading="lazy" 
+                            alt="<%= lang[p.img_alt] %>">
+                    </div>
+
+                    <!-- 2. Dynamisches Overlay (Reveal-Effekt) -->
+                    <div class="absolute inset-0 z-10 bg-gradient-to-t from-[var(--card-bg)] via-[var(--card-bg)]/40 to-transparent opacity-50 transition-opacity duration-500 group-hover:opacity-80"></div>
+                    
+                    <!-- 3. Projekt-Farbe Akzent (schleicht sich von unten rein) -->
+                    <div class="absolute inset-0 z-15 opacity-0 group-hover:opacity-40 transition-all duration-700 bg-gradient-to-br" 
+                        style="--gradient-color:<%= p.text_color %>; background-image: linear-gradient(to bottom right, var(--gradient-color), transparent);"></div>
+
+                    <!-- 4. Content (Text wandert beim Hover) -->
+                    <div class="absolute inset-0 z-20 p-10 flex flex-col justify-end translate-y-4 transition-transform duration-500 group-hover:translate-y-0">
+                        <span class="text-xs uppercase tracking-[0.3em] mb-2 opacity-0 group-hover:opacity-100 transition-all duration-700 delay-100 shadow-2xl" style="--text-color: <%= p.text_color %>; color: var(--text-color);">
+                            <%= lang.ft_project %>
+                        </span>
+                        <h3 class="text-3xl font-black text-[var(--text-main)] mb-3 tracking-tight">
+                            <%= p.name %>
+                        </h3>
+                        <p class="text-[var(--text-dim)]-300 text-lg max-w-md opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200 line-clamp-2">
+                            <%= lang[p.title_key] %>
+                        </p>
+                        
+                        <!-- Ein kleiner "Arrow" Indikator -->
+                        <div class="mt-6 flex items-center gap-2 text-[var(--text-dim)] font-bold opacity-0 group-hover:opacity-100 transition-all duration-700 delay-300">
+                            <span><%= lang.view_details %></span>
+                            <span class="transition-transform group-hover:translate-x-2">→</span>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </section>
+</main>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,76 @@
+<%- include('partials/header') %>
+
+<main class="container mx-auto px-5 pt-48 pb-24 max-w-4xl animate-on-scroll">
+    <div class="bg-[var(--card-bg)] rounded-[2.5rem] border border-[var(--shadow)] p-8 md:p-16 shadow-2xl transition-colors duration-400">
+        
+        <!-- Header Section -->
+        <div class="mb-12 border-b border-[var(--shadow)] pb-8 relative inline-block w-full">
+            <h1 class="text-4xl md:text-5xl font-black tracking-tighter text-[var(--accent-blue)] mb-4">
+                <%= lang.imprint_title %>
+            </h1>
+            <div class="w-20 h-1.5 bg-[var(--accent-blue)] rounded-full"></div>
+        </div>
+
+        <!-- Company Information Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
+            <div class="space-y-4">
+                <p class="flex flex-col">
+                    <span class="text-xs uppercase tracking-widest text-[var(--text-dim)] font-bold mb-1"><%= lang.imprint_company_strong %></span>
+                    <span class="text-lg font-semibold text-[var(--text-main)]"><%= lang.imprint_company %></span>
+                </p>
+                <p class="flex flex-col">
+                    <span class="text-xs uppercase tracking-widest text-[var(--text-dim)] font-bold mb-1"><%= lang.imprint_owner_strong %></span>
+                    <span class="text-lg font-semibold text-[var(--text-main)]"><%= lang.imprint_owner %></span>
+                </p>
+                <p class="flex flex-col">
+                    <span class="text-xs uppercase tracking-widest text-[var(--text-dim)] font-bold mb-1"><%= lang.imprint_address_strong %></span>
+                    <span class="text-lg font-semibold text-[var(--text-main)]"><%= lang.imprint_address %></span>
+                </p>
+            </div>
+
+            <div class="space-y-4">
+                <p class="flex flex-col">
+                    <span class="text-xs uppercase tracking-widest text-[var(--text-dim)] font-bold mb-1"><%= lang.imprint_contact_title %></span>
+                    <a href="mailto:<%= lang.imprint_email %>" class="text-lg font-bold text-[var(--accent-blue)] hover:underline"><%= lang.imprint_email %></a>
+                </p>
+                <p class="flex flex-col">
+                    <span class="text-xs uppercase tracking-widest text-[var(--text-dim)] font-bold mb-1"><%= lang.imprint_business_strong %></span>
+                    <span class="text-md text-[var(--text-dim)] leading-relaxed"><%= lang.imprint_business %></span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Membership & Authority Section -->
+        <div class="bg-[var(--bg-body)] rounded-3xl p-8 border border-[var(--shadow)] mb-12">
+            <h2 class="text-xl font-bold mb-6 flex items-center gap-3">
+                <span class="w-2 h-6 bg-[var(--accent-blue)] rounded-full"></span>
+                <%= lang.imprint_membership_title %>
+            </h2>
+            
+            <a href="https://firmen.wko.at/nodar-abramishvili-soft-master-webdesign-seo-und-edv-dienstleistungen/wien/?firmaid=9da98836-be0d-4341-9603-2b07cbb934fd&suchbegriff=nodar%20abramishvili" target="_blank" class="group block">
+                <img src="/img/logo_wko.webp" 
+                     class="w-40 mb-4 transition-transform group-hover:scale-105" 
+                     alt="WKO Logo">
+                <p class="text-[var(--accent-blue)] font-bold group-hover:underline italic text-sm">
+                    <%= lang.imprint_membership %>
+                </a>
+            </p>
+
+            <div class="mt-8 pt-8 border-t border-[var(--shadow)] space-y-4">
+                <p><strong class="text-[var(--text-main)]"><%= lang.imprint_authority_strong %></strong> <span class="text-[var(--text-dim)]"><%= lang.imprint_authority %></span></p>
+                <p><strong class="text-[var(--text-main)]"><%= lang.imprint_profession_strong %></strong> <span class="text-[var(--text-dim)]"><%= lang.imprint_profession %></span></p>
+                <p><strong class="text-[var(--text-main)]"><%= lang.imprint_country_strong %></strong> <span class="text-[var(--text-dim)]"><%= lang.imprint_country %></span></p>
+            </div>
+        </div>
+
+        <!-- Legal Texts -->
+        <div class="prose prose-invert max-w-none text-sm leading-relaxed text-[var(--text-dim)] space-y-6">
+            <p><%= lang.imprint_liability %></p>
+            <p class="p-4 border-l-4 border-[var(--accent-blue)] bg-[var(--accent-blue)]/5 italic">
+                <%= lang.imprint_dispute %>
+            </p>
+        </div>
+    </div>
+</main>
+
+<%- include('partials/footer') %>

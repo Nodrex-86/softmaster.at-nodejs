@@ -1,0 +1,98 @@
+<%- include('partials/header') %>
+
+<main class="container mx-auto px-5 max-w-[1600px] pb-24">
+    <% services.forEach((s, index) => { 
+        const isEven = (index % 2 === 0); 
+    %>
+    <div class="pt-32 md:pt-48" id="<%= s.id %>">
+        <!-- Titel & Icon Sektion -->
+        <div class="text-center mb-12">
+            <div class="animate-on-scroll service-icon" style="--icon-color: <%= s.text_color %>;">
+                <%- getSvg(s.img) %>
+            </div>
+            <h1 class="animate-on-scroll text-4xl md:text-6xl font-black mb-4 tracking-tighter" style="--text-color: <%= s.text_color %>; color: var(--text-color);">
+                <%= lang[s.name_key] %>
+            </h1>
+        </div>
+
+        <!-- Projekt Row: Wechselnde Richtung durch reverse -->
+        <section class="grid items-center gap-12 <%= isEven ? '' : 'reverse' %>">
+            
+            <!-- Slideshow Teil -->
+            <div class="service-preview animate-on-scroll <%= isEven ? 'from-left' : 'from-right' %>">
+                <div class="service-slider relative group overflow-hidden rounded-[2rem] shadow-2xl border border-[var(--shadow)] bg-[var(--card-bg)]/10" id="slider-<%= s.id %>">
+                    
+                    <% s.slides.forEach((slide, sIndex) => { %>
+                        <div class="slide <%= (sIndex === 0) ? 'active' : '' %> absolute inset-0 transition-opacity duration-1000 ">
+                            <!-- WICHTIG: Die {{lang}} Ersetzung für SEO-Bilder falls nötig -->
+                            <img src="/<%= slide.replace('{{lang}}', currentLang) %>" 
+                                 class="w-full h-full object-cover" 
+                                 alt="<%= s.img_alt %>" title="<%= s.img_title %>" loading="lazy">
+                        </div>
+                    <% }) %>
+
+                    <!-- Navigations-Pfeile (Nur bei Hover sichtbar) -->
+                    <div class="slider-nav justify-between items-center px-4 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                        <button class="w-12 h-12 flex items-center justify-center bg-black/40 text-white rounded-full backdrop-blur-md pointer-events-auto hover:bg-[var(--accent-blue)] transition-all" 
+                                onclick="moveSlide('<%= s.id %>', -1)">❮</button>
+                        <button class="w-12 h-12 flex items-center justify-center bg-black/40 text-white rounded-full backdrop-blur-md pointer-events-auto hover:bg-[var(--accent-blue)] transition-all" 
+                                onclick="moveSlide('<%= s.id %>', 1)">❯</button>
+                    </div>
+
+                    <!-- Dots -->
+                    <div class="slider-dots absolute bottom-6 w-full flex justify-center gap-3 z-20">
+                        <% s.slides.forEach((_, sIndex) => { %>
+                            <span class="dot <%= (sIndex === 0) ? 'active' : '' %> w-3 h-3 rounded-full cursor-pointer transition-all duration-300" 
+                                  data-index="<%= sIndex %>" onclick="setSlide('<%= s.id %>', this.dataset.index)"></span>
+                        <% }) %>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Text Teil -->
+            <div class="animate-on-scroll <%= isEven ? 'from-right' : 'from-left' %> justify-center">
+                <h3 class="text-2xl font-bold text-[var(--text-main)] mb-3">
+                    <%= lang[s.intro_key] %>
+                </h3>
+                <p class="leading-relaxed text-[var(--text-dim)] text-justify mb-3">
+                    <%= lang[s.detail_key] %>
+                </p>
+                <h4 class="text-1 font-extrabold text-[var(--text-main)] mb-3 flex items-center gap-3">
+                    <span class="w-8 h-1 bg-[var(--accent-blue)] rounded-full"></span>
+                    <%= lang[s.list_title_key] %>
+                </h4>
+
+                <!-- Liste mit Custom Icons -->
+                <ul class="space-y-1 text-[var(--text-dim)]">
+                    <% lang[s.list_key].forEach(item => { %>
+                    <li class="group flex items-start gap-4 transition-all duration-300 hover:translate-x-2">
+                        <!-- Das Custom Bullet Point Icon -->
+                        <span class="mt-1 flex-shrink-0 w-6 h-6 rounded-lg bg-[var(--accent-blue)]/10 flex items-center justify-center group-hover:bg-[var(--accent-blue)] transition-colors">
+                            <svg class="w-3.5 h-3.5 text-[var(--accent-blue)] group-hover:text-white transition-colors" 
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="4">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </span>
+                        
+                        <!-- Der Text -->
+                        <span class="text-lg leading-snug group-hover:text-[var(--text-main)] transition-colors">
+                            <%= item %>
+                        </span>
+                    </li>
+                    <% }) %>
+                </ul>
+                <br>
+                <p  class="text-[var(--text-dim)]" style="text-align: justify;"><%= lang[s.outro_key] %></p>
+                <br>
+                <div class="border-l-4 border-[var(--accent-blue)] pl-6 py-2 mb-3">
+                    <strong class="text-xl italic text-[var(--text-main)]">
+                        <%= lang[s.slogan_key] %>
+                    </strong>
+                </div>
+            </div>
+        </section>
+    </div>
+    <% }) %>
+</main>
+
+<%- include('partials/footer') %>

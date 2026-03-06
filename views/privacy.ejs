@@ -1,0 +1,74 @@
+<%- include('partials/header') %>
+
+<main class="container mx-auto px-5 pt-48 pb-24 max-w-4xl animate-on-scroll">
+    <div class="bg-[var(--card-bg)] rounded-[2.5rem] border border-[var(--shadow)] p-8 md:p-16 shadow-2xl transition-colors duration-400">
+        
+        <!-- Header -->
+        <div class="mb-12 border-b border-[var(--shadow)] pb-8">
+            <h1 class="text-4xl md:text-5xl font-black tracking-tighter text-[var(--accent-blue)] mb-4">
+                <%= lang.privacy_title %>
+            </h1>
+            <div class="flex items-center gap-3 text-[var(--text-dim)] text-sm">
+                <span class="w-10 h-0.5 bg-[var(--accent-blue)]"></span>
+                <span><%= lang.last_update %> <%= new Date().toLocaleDateString('de-AT') %></span>
+            </div>
+        </div>
+
+        <!-- Privacy Content -->
+        <div class="space-y-12 text-[var(--text-dim)] leading-relaxed">
+            
+            <!-- Section 1 -->
+            <section class="group">
+                <h3 class="text-xl font-bold text-[var(--text-main)] mb-4 flex items-center gap-3 group-hover:text-[var(--accent-blue)] transition-colors">
+                    <%= lang.privacy_section1_title %>
+                </h3>
+                <p class="text-justify"><%= lang.privacy_section1_text %></p>
+            </section>
+
+            <!-- Section 2 -->
+            <section class="group p-6 bg-[var(--bg-body)] rounded-2xl border border-[var(--shadow)]">
+                <h3 class="text-xl font-bold text-[var(--text-main)] mb-4 group-hover:text-[var(--accent-blue)] transition-colors">
+                    <%= lang.privacy_section2_title %>
+                </h3>
+                <p>
+                    <strong class="text-[var(--text-main)] underline decoration-[var(--accent-blue)]/30"><%= lang.privacy_section2_text_strong %></strong> 
+                    <%= lang.privacy_section2_text %>
+                </p>
+            </section>
+
+            <!-- Section 3: Third Party Services -->
+            <section class="group">
+                <h3 class="text-xl font-bold text-[var(--text-main)] mb-6 flex items-center gap-3">
+                    <span class="w-2 h-6 bg-[var(--accent-blue)] rounded-full"></span>
+                        <%= lang.privacy_section3_title %>
+                </h3>
+                <div class="grid grid-cols-1 gap-6">
+                    <div class="border-l-4 border-[var(--shadow)] pl-6 py-2">
+                        <p><strong class="text-[var(--text-main)] block mb-1"><%= lang.privacy_cloudflare_strong %></strong> <%= lang.privacy_cloudflare %></p>
+                    </div>
+                    <div class="border-l-4 border-[var(--shadow)] pl-6 py-2">
+                        <p><strong class="text-[var(--text-main)] block mb-1"><%= lang.privacy_googlefonts_strong %></strong> <%= lang.privacy_googlefonts %></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4 -->
+            <section class="group">
+                <h3 class="text-xl font-bold text-[var(--text-main)] mb-4 group-hover:text-[var(--accent-blue)] transition-colors">
+                    <%= lang.privacy_section4_title %>
+                </h3>
+                <p><%= lang.privacy_section4_text %></p>
+            </section>
+
+            <!-- Contact Section -->
+            <section class="pt-8 border-t border-[var(--shadow)]">
+                <h3 class="text-xl font-black text-[var(--text-main)] mb-2"><%= lang.privacy_contact_title %></h3>
+                <a href="mailto:<%= lang.privacy_contact_email %>" class="text-lg font-bold text-[var(--accent-blue)] hover:underline">
+                    <%= lang.privacy_contact_email %>
+                </a>
+            </section>
+        </div>
+    </div>
+</main>
+
+<%- include('partials/footer') %>

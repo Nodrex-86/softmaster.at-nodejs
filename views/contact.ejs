@@ -1,0 +1,35 @@
+<%- include('partials/header') %>
+
+<main class="container animate-on-scroll mx-auto px-5" style="max-width: 800px; padding-top: 200px; padding-bottom: 100px;">
+    <div class="contact-card">
+        <h1 style="color: var(--accent-blue); margin-bottom: 10px;"><%= lang.contact_title %></h1>
+        <p style="color: var(--text-dim); margin-bottom: 30px;"><%= lang.contact_subtitle %></p>
+
+        <!-- Die Action verweist nun auf unsere Node-Route /send-contact -->
+        <form id="contact-form" action="/send-contact" method="POST">
+            <div class="input-group">
+                <input type="text" name="name" placeholder="<%= lang.form_name %>" required>
+                <input type="email" name="email" placeholder="<%= lang.form_email %>" required>
+            </div>
+            
+            <input type="text" name="subject" placeholder="<%= lang.form_subject %>" required>
+            
+            <textarea name="message" placeholder="<%= lang.form_message %>" rows="6" required></textarea>
+
+            <!-- Cloudstile Container für Captcha -->
+            <div id="captcha-container" class="flex justify-end mb-4"></div>
+
+            <div class="privacy-check">
+                <input type="checkbox" id="privacy" name="privacy" required>
+                <label for="privacy"><%= lang.form_privacy %> <a href='privacy'><%= lang.privacy_title %></a>.</label>
+            </div>
+            <button type="submit" class="button w-full mt-5">
+                <%= lang.form_send %>
+            </button>
+            
+            <div id="form-response" class="mt-5 font-bold"></div>
+        </form>
+    </div>
+</main>
+
+<%- include('partials/footer') %>
