@@ -112,18 +112,21 @@ app.post('/send-contact', async (req, res) => {
     // 3. Nodemailer Konfiguration (E-Mail Versand)
     // Nutze hier deine SMTP-Daten (z.B. von deinem Hosting bei SoftMaster)
     const transporter = nodemailer.createTransport({
-        host: process.env.SMTP_HOST, 
-        port: 587,
-        secure: false, 
+        host: process.env.SMTP_HOST,
+        port: 465,                   // Wechsel von 587 auf 465
+        secure: true,                // Muss true sein für Port 465
+        connectionTimeout: 10000,
+        greetingTimeout: 10000,
+        socketTimeout: 10000,
         auth: {
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASS
         },
         tls: {
-            //ciphers: 'SSLv3', // auskommentiert wegen - cloud providers (like Render) block outgoing traffic on certain mail ports to prevent spam.
             rejectUnauthorized: false
         }
     });
+
     // Teste die Verbindung beim Start
     transporter.verify(function(error, success) {
     if (error) {
