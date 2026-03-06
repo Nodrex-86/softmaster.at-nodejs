@@ -3,7 +3,7 @@
     "start": "node server.js"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=24.14.0"
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.2.1",

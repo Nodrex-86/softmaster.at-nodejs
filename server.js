@@ -83,8 +83,10 @@ app.listen(PORT, () => {
 
 // POST Route für das Kontaktformular
 app.post('/send-contact', async (req, res) => {
-    const secretKey = '0x4AAAAAACjFe130sQ75gHUit-voMZwy_9Y';
+    console.log("1. Form received from:", req.body.email);
+    const secretKey = process.env.TURNSTILE_SECRET;
     const token = req.body['cf-turnstile-response'];
+    console.log("2. Turnstile Token present:", !!token);
     const ip = req.headers['cf-connecting-ip'] || req.headers['x-forwarded-for'] || req.socket.remoteAddress;
 
     // 1. Cloudflare Turnstile Validierung
@@ -94,8 +96,9 @@ app.post('/send-contact', async (req, res) => {
             body: new URLSearchParams({ secret: secretKey, response: token, remoteip: ip })
         });
         const validation = await turnstileRes.json();
-
+        console.log("3. Turnstile Validation Result:", validation.success);
         if (!validation.success) {
+            console.log("4. Turnstile Failed. Error codes:", validation['error-codes']);
             return res.send("captcha_error");
         }
     } catch (err) {
@@ -121,7 +124,7 @@ app.post('/send-contact', async (req, res) => {
         }
     });
 
-
+    console.log("5. Attempting to send Mail via SendGrid...");
     // Teste die Verbindung beim Start
     transporter.verify(function(error, success) {
     if (error) {
