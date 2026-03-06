@@ -112,17 +112,13 @@ app.post('/send-contact', async (req, res) => {
     // 3. Nodemailer Konfiguration (E-Mail Versand)
     // Nutze hier deine SMTP-Daten (z.B. von deinem Hosting bei SoftMaster)
     const transporter = nodemailer.createTransport({
-        host: process.env.SMTP_HOST,
-        port: 465,
-        secure: true,
+        host: process.env.SMTP_HOST, // Now SendGrid
+        port: 587,
+        secure: false, // TLS
         auth: {
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASS
-        },
-        // Adding a very long timeout to see if it's just slow
-        connectionTimeout: 20000, 
-        greetingTimeout: 20000,
-        socketTimeout: 20000
+        }
     });
 
 
