@@ -21,6 +21,12 @@ The project features a dynamic EJS-based templating system with multi-language s
 
 ## Screenshots
 
+### Live Engine Pulse
+The Node.js version features a persistent server monitor. Unlike PHP, which restarts every request, Node.js stays active in memory—demonstrated by the live uptime and heap memory counters.
+
+![Live Pulse Preview](docs/pulse-preview.png) <!-- Once you have a screenshot -->
+
+
 ### Theme Support
 
 The website supports automatic **day/night mode** depending on the system time,
@@ -39,11 +45,15 @@ with a manual toggle available in the navigation.
 - **Languages:** German (default) and English via JSON localization files.
 - **Performance:** Optimized LCP and reduced layout thrashing (Canvas/Slider).
 - **Contact:** Secure nodemailer integration using environment variables.
+- **Real-time Monitoring:** Custom API endpoint for live server pulse (Uptime & Heap memory usage).
+- **Hybrid Architecture:** Seamless cross-platform switching between PHP and Node.js environments.
 
 ## Latest Updates
-- ✅ **Infrastructure:** Successfully bypassed SMTP port blocks on Render using SendGrid.
-- ✅ **SSL & Custom Domain:** Fully configured with Let's Encrypt at [node.softmaster.at](https://node.softmaster.at).
-- ✅ **Stability:** Resolved 404 view lookup errors for Linux environments (Render/Ubuntu).
+...
+- ✅ **Real-time Stats:** Integrated a live-syncing engine monitor (Uptime/RAM) using Fetch API.
+- ✅ **UI/UX:** Added interactive tech-stack grid with glowing WebP icons and custom SEO tooltips.
+- ✅ **Cross-Linking:** Established bi-directional routing between PHP and Node.js versions.
+
 
 
 ## Tech Stack

@@ -155,4 +155,80 @@ const projects = [
     }
 ];
 
-module.exports = { highlights, services, projects };
+const tech = [
+    {
+        name: 'Node JS',
+        alt: 'tech_nodejs_alt',
+        title: 'tech_nodejs_title',
+        src: 'icons/node-js.webp',
+        color: 'rgba(131,205,41,0.6)',
+    },
+    {
+        name: 'Tailwind CSS 3.4',
+        alt: 'tech_tailwind_alt',
+        title: 'tech_tailwind_title',
+        src: 'icons/tailwind_css.webp',
+        color: 'rgba(56,189,248,0.6)',
+    },
+    {
+        name: 'Vanilla JS',
+        alt: 'tech_javascript_alt',
+        title: 'tech_javascript_title',
+        src: 'icons/javascript.webp',
+        color: 'rgba(251,216,32,0.6)',
+    },
+    {
+        name: 'MySQL',
+        alt: 'tech_mysql_alt',
+        title: 'tech_mysql_title',
+        src: 'icons/mysql.webp',
+        color: 'rgba(242,145,17,0.6)',
+    },
+];
+
+const foundation_tech = [
+    {
+        name: 'HTML5',
+        alt: 'tech_html5_alt',
+        title: 'tech_html5_title',
+        src: 'icons/html5.webp',
+        color: 'rgba(245,114,38,0.6)',
+    },
+    {
+        name: 'CSS3',
+        alt: 'tech_css3_alt',
+        title: 'tech_css3_title',
+        src: 'icons/css3.webp',
+        color: 'rgba(0,101,244,0.6)',
+    },
+    {
+        name: 'SVG',
+        alt: 'tech_svg_alt',
+        title: 'tech_svg_title',
+        src: 'icons/svg.webp',
+        color: 'rgba(205,137,35,0.6)',
+    },
+    {
+        name: 'Git',
+        alt: 'tech_git_alt',
+        title: 'tech_git_title',
+        src: 'icons/git.webp',
+        color: 'rgba(240,80,51,0.6)',
+    },
+    {
+        name: 'Cloudflare Turnstile',
+        alt: 'tech_turnstile_alt',
+        title: 'tech_turnstile_title',
+        src: 'icons/cloudflare.webp',
+        color: 'rgba(250,173,63,0.6)',
+    },
+    {
+        name: 'Let\'s Encrypt SSL',
+        alt: 'tech_ssl_alt',
+        title: 'tech_ssl_title',
+        src: 'icons/ssl.webp',
+        color: 'rgba(134,207,66,0.6)',
+    },
+];
+
+module.exports = { highlights, services, projects, tech, foundation_tech };

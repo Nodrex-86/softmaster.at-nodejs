@@ -3,8 +3,10 @@ const nodemailer = require('nodemailer');
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
-const { highlights, services, projects } = require('./data');
+const { highlights, services, projects, tech, foundation_tech } = require('./data');
 const sgMail = require('@sendgrid/mail');
+const os = require('os');
+const startTime = Date.now();
 sgMail.setApiKey(process.env.EMAIL_PASS); 
 
 const app = express();
@@ -54,10 +56,24 @@ function getLangData(langCode) {
 
 // 1. Home
 app.get('/', (req, res) => {
+    const serverPulse = {
+        uptime: Math.floor((Date.now() - startTime) / 1000),
+        memory: (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(1),
+        platform: os.platform() === 'linux' ? 'Ubuntu Linux' : os.platform(),
+        nodeVer: process.version
+    };
     res.render('index', { 
         pageKey: 'index',
-        highlights, services, projects,
+        highlights, services, projects, tech, foundation_tech,
+        serverPulse, 
         getSvg
+    });
+});
+
+app.get('/api/pulse', (req, res) => {
+    res.json({
+        uptime: Math.floor((Date.now() - startTime) / 1000),
+        memory: (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(1)
     });
 });
 
@@ -72,7 +88,7 @@ app.get('/:page', (req, res) => {
 
     res.render(pageKey, { 
         pageKey,
-        highlights, services, projects,
+        highlights, services, projects, tech, foundation_tech,
         getSvg
     });
 });
@@ -80,7 +96,7 @@ app.get('/:page', (req, res) => {
 
 const PORT = 3000;
 app.listen(PORT, () => {
-    console.log(`Softmaster läuft auf http://localhost:${PORT}`);
+    //console.log(`Softmaster läuft auf http://localhost:${PORT}`);
 });
 
 // POST Route für das Kontaktformular

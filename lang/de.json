@@ -167,5 +167,32 @@
     "privacy_section4_text": "Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger sowie auf Berichtigung oder Löschung dieser Daten.",
     "privacy_contact_title": "Kontakt Datenschutz",
     "privacy_contact_email": "office@softmaster.at",
-    "last_update": "Last Updated:"
+    "last_update": "Letzte Aktualisierung:",
+    
+    "tech": "verwendete technologie",
+    "switch_to_node": "Wechsel zur High-Performance Node.js Engine",
+    "switch_to_php": "Zurück zur stabilen PHP 8.2 Umgebung",
+
+    "tech_php_alt": "Softmaster PHP Backend",
+    "tech_php_title": "Softmaster Server-Backend: Entwickelt mit PHP 8.2, objektorientierter Architektur und skalierbarer MVC-Struktur.",
+    "tech_html5_alt": "Softmaster HTML5 Webstruktur",
+    "tech_html5_title": "Softmaster Webentwicklung: Moderne semantische HTML5-Struktur für optimale SEO, Barrierefreiheit und sauberen Code.",
+    "tech_css3_alt": "Softmaster CSS3 Interface Design",
+    "tech_css3_title": "Softmaster UI Design: Fortschrittliche CSS3 Animationen, Flexbox und Grid Layouts für moderne und performante Webinterfaces.",
+    "tech_tailwind_alt": "Softmaster Tailwind CSS Framework",
+    "tech_tailwind_title": "Softmaster Frontend-System: Responsive Utility-First Styling mit Tailwind CSS für moderne und schnelle Weblayouts.",
+    "tech_javascript_alt": "Softmaster JavaScript (Vanilla JS) Interaktivität",
+    "tech_javascript_title": "Softmaster Frontend-Logik: Modernes ES6+ JavaScript (Vanilla JS) für performante, interaktive und dynamische Webanwendungen.",
+    "tech_mysql_alt": "Softmaster MySQL Datenbank",
+    "tech_mysql_title": "Softmaster Datenmanagement: Sichere relationale MySQL Datenbank für strukturierte Speicherung und schnelle Datenabfragen.",
+    "tech_svg_alt": "Softmaster SVG Icons",
+    "tech_svg_title": "Softmaster Performance: Hochauflösende SVG Icons für gestochen scharfe Darstellung und ultraschnelle Ladezeiten.",
+    "tech_git_alt": "Softmaster Git Versionierung",
+    "tech_git_title": "Softmaster Deployment Workflow: Versionskontrolle und Continuous Integration über Git und GitHub.",
+    "tech_turnstile_alt": "Softmaster Spam Schutz",
+    "tech_turnstile_title": "Softmaster Sicherheit: Cloudflare Turnstile Bot-Schutz – DSGVO-konforme Spamabwehr ohne störende Benutzerinteraktion.",
+    "tech_ssl_alt": "Softmaster SSL Sicherheit",
+    "tech_ssl_title": "Softmaster Sicherheit: Automatische Let’s Encrypt SSL-Verschlüsselung für sichere und vertrauenswürdige Datenübertragung.",
+    "tech_nodejs_alt": "Softmaster Node.js Backend",
+    "tech_nodejs_title": "Softmaster Node.js Plattform: Moderne serverseitige Architektur mit Node.js, Express und dynamischem Rendering."
 }

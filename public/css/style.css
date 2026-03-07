@@ -40,7 +40,6 @@ body.dark-mode {
 
 body,
 html {
-    overflow-x: hidden;
     width: 100%;
     position: relative;
     min-height: 100vh;
