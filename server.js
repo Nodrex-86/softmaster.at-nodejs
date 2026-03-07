@@ -21,7 +21,7 @@ app.use((req, res, next) => {
     
     let pathName = req.path.replace(/^\/|\/$/g, '');
     const pageKey = (pathName === "" || pathName === "index") ? "index" : pathName;
-    const cleanUrl = `https://www.softmaster.at/${pageKey === 'index' ? '' : pageKey}`;
+    const cleanUrl = `https://node.softmaster.at/${pageKey === 'index' ? '' : pageKey}`;
 
     // --- The Fix: Name it 'lang' so your templates don't need changes ---
     res.locals.lang = langData; 
