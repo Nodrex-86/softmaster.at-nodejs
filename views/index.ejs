@@ -3,7 +3,6 @@
 <main>
     <!-- Hero Section -->
     <section class="hero relative overflow-hidden min-h-[70vh] flex items-center justify-center py-20">
-        <canvas id="hero-canvas" class="absolute inset-0 z-0"></canvas>
         <div class="container relative z-10 px-5 text-center max-w-4xl mx-auto pt-20">
             <h1 class="animate-on-scroll text-5xl md:text-7xl font-black tracking-tighter mb-3 bg-clip-text text-transparent bg-gradient-to-r from-sky-400 to-emerald-400" style="line-height: 1.3;">
                 <%= lang.home_h1 %>
@@ -102,7 +101,7 @@
                 <!-- The Switch Button -->
                 <div class="pt-4 animate-on-scroll">
                     <a href="https://www.softmaster.at" 
-                    class="group relative inline-flex items-center gap-4 px-10 py-4 bg-[var(--btn-primary)]/50 border border-sky-600/20 text-[var(--text-main)] font-bold rounded-2xl transition-all hover:border-sky-500 hover:shadow-[0_0_30px_rgba(14,165,233,0.2)]">
+                    class="group relative inline-flex items-center gap-4 px-10 py-4 bg-[var(--btn-primary)]/50 border border-sky-600/20 text-[var(--text-main)] font-bold rounded-2xl transition-all hover:border-sky-500 hover:shadow-[0_0_30px_rgba(14,165,233,0.2)] backdrop-blur-md">
                         <span class="text-sm uppercase tracking-widest"><%= lang.switch_to_php %></span>
                         <span class="text-xl group-hover:translate-x-2 transition-transform">→</span>
                         <img src="icons/php.webp" alt="lang.tech_php_alt" title="lang.tech_php_title" class="w-8 h-8 object-contain filter brightness-75 group-hover:brightness-100 transition-all duration-500">
@@ -115,7 +114,7 @@
     <!-- Highlights Slider -->
     <section class="py-12 md:py-20">
         <div class="container mx-auto px-5">
-            <div class="relative overflow-hidden rounded-[2.5rem] bg-[var(--text-dim)]/5 border border-[#94a3b8]/10 backdrop-blur-2xl shadow-[0_5px_20px_rgba(0,0,0,0.3)] h-[650px] md:h-[550px]" id="main-hero-highlights">
+            <div class="relative overflow-hidden rounded-[2.5rem] bg-[var(--text-dim)]/5 border border-[#94a3b8]/10 backdrop-blur-2xl shadow-[0_5px_20px_rgba(0,0,0,0.3)] h-[650px] md:h-[550px] backdrop-blur-md" id="main-hero-highlights">
                 
                 <% highlights.forEach((item, index) => { %>
                     <div class="h-slide <%= (index === 0) ? 'active' : '' %> absolute inset-0 flex flex-col md:flex-row items-center">
@@ -170,7 +169,7 @@
         <h2 class="animate-on-scroll text-4xl font-bold mb-16 text-center italic"><%= lang.services_title %></h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <% services.forEach(s => { %>
-                <div class="animate-on-scroll group relative p-6 rounded-2xl bg-white/5 border border-[<%= s.bg_color %>]/20 hover:border-[<%= s.bg_color %>]/50 transition-all duration-500 cursor-pointer hover:-translate-y-2 flex flex-col items-center text-center" 
+                <div class="animate-on-scroll group relative p-6 rounded-2xl bg-[var(--card-bg)]/50 border border-[<%= s.bg_color %>]/20 hover:border-[<%= s.bg_color %>]/50 transition-all duration-500 cursor-pointer hover:-translate-y-2 flex flex-col items-center text-center backdrop-blur-md" 
                      style="box-shadow: 0 10px 30px var(--shadow);"
                      onclick="location.href='/services#<%= s.id %>'">
                     
@@ -199,7 +198,7 @@
                 <div class="group relative h-[400px] rounded-[2.5rem] border border-[<%= p.text_color %>]/20 overflow-hidden cursor-pointer shadow-2xl animate-on-scroll transition-all duration-700 hover:scale-[1.02]"  style="box-shadow: 0 10px 30px var(--shadow);" onclick="location.href='/projects#<%= p.id %>'">
                     
                     <!-- 1. Hintergrundbild mit Zoom-Effekt -->
-                    <div class="absolute inset-0 z-0 flex items-center justify-center bg-[var(--card-bg)]/20 transition-transform duration-1000 group-hover:scale-110">
+                    <div class="absolute inset-0 z-0 flex items-center justify-center bg-[var(--card-bg)]/50 transition-transform duration-1000 group-hover:scale-110 backdrop-blur-md">
                         <img src="<%= p.img%>" 
                             class="h-full w-auto object-contain grayscale-[40%] group-hover:grayscale-0" 
                             loading="lazy" 

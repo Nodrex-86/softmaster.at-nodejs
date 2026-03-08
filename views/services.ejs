@@ -19,7 +19,7 @@
         <section class="grid items-center gap-12 <%= isEven ? '' : 'reverse' %>">
             
             <!-- Slideshow Teil -->
-            <div class="service-preview animate-on-scroll <%= isEven ? 'from-left' : 'from-right' %>">
+            <div class="service-preview animate-on-scroll <%= isEven ? 'from-left' : 'from-right' %> backdrop-blur-md">
                 <div class="service-slider relative group overflow-hidden rounded-[2rem] shadow-2xl border border-[var(--shadow)] bg-[var(--card-bg)]/10" id="slider-<%= s.id %>">
                     
                     <% s.slides.forEach((slide, sIndex) => { %>

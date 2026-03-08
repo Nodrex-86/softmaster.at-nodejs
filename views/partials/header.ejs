@@ -37,29 +37,33 @@
     <meta name="description" content="<%= seo_desc %>"> 
     <meta name="robots" content="index, follow">
     <meta name="language" content="<%= currentLang %>">
-    <meta name="author" content="SoftMaster">
+    <meta name="author" content="Softmaster">
 
     <!-- Open Graph (Für Social Media wie Facebook/LinkedIn) -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="<%= cleanUrl %>">
     <meta property="og:title" content="<%= seo_title %>">
     <meta property="og:description" content="<%= seo_desc %>">
-    <meta property="og:image" content="img/og-share-image.jpg">
+    <meta property="og:image" content="https://node.softmaster.at/img/og-share-image.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="article:publisher" content="https://www.facebook.com/SoftmasterAT">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="<%= seo_title %>">
     <meta name="twitter:description" content="<%= seo_desc %>">
-    <meta name="twitter:image" content="img/og-image.webp">
+    <meta name="twitter:image" content="https://node.softmaster.at/img/og-image.webp">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
-    <link rel="icon" type="image/png" href="img/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
-    <link rel="shortcut icon" href="img/short-favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png" />
-    <link rel="manifest" href="img/site.webmanifest" />
-    <link rel="icon" type="image/png" sizes="192x192" href="img/android-icon.png">
+    <link rel="icon" type="image/x-icon" href="https://node.softmaster.at/img/favicon.ico">
+    <link rel="icon" type="image/png" href="https://node.softmaster.at/img/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="https://node.softmaster.at/img/favicon.svg" />
+    <link rel="shortcut icon" href="https://node.softmaster.at/img/short-favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="https://node.softmaster.at/img/apple-touch-icon.png" />
+    <link rel="manifest" href="https://node.softmaster.at/img/site.webmanifest" />
+    <link rel="icon" type="image/png" sizes="192x192" href="https://node.softmaster.at/img/android-icon.png">
     <link rel="canonical" href="<%= cleanUrl %>">
     <link rel="alternate" hreflang="de" href="<%= cleanUrl %>?lang=de" />
     <link rel="alternate" hreflang="en" href="<%= cleanUrl %>?lang=en" />
@@ -68,7 +72,7 @@
     <link rel="stylesheet" href="css/tailwind-build-mini.css">
 
     <!-- Scripte -->
-    <script src="/js/main.min.js"></script>
+    <script src="js/main.min.js"></script>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script>
         const lang_success = "<%= lang.form_success %>";
@@ -78,7 +82,7 @@
     {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
-        "name": "SoftMaster",
+        "name": "Softmaster",
         "image": "https://node.softmaster.at/img/og-share-image.jpg",
         "url": "https://node.softmaster.at",
         "address": {
@@ -107,10 +111,13 @@
     {
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "SoftMaster",
+        "name": "Softmaster",
         "url": "https://node.softmaster.at",
         "logo": "https://node.softmaster.at/img/soft-master-logo-header.webp",
-        "description": "Webdesign, SEO, Branding & IT Dienstleistungen"
+        "description": "Webdesign, SEO, Branding & IT Dienstleistungen",
+        "sameAs": [
+            "https://www.facebook.com/SoftmasterAT"
+        ]
     }
     </script>
     <script type="application/ld+json">
@@ -158,6 +165,7 @@
 
 </head>
 <body class="">
+<canvas id="hero-canvas" class="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none"></canvas>
 <script>
     (function() {
         const hour = new Date().getHours();
@@ -173,7 +181,7 @@
 </script>
 <header class="border-[#38bdf8]/10 px-5">
     <div class="logo">
-        <a href="/"><img src="img/soft-master-logo-header.webp" style="max-width: none;" alt="SoftMaster"></a>
+        <a href="/"><img src="img/soft-master-logo-header.webp" style="max-width: none;" alt="Softmaster"></a>
         <span style="font-weight: bold;"><%= lang.brand_name %></span>
     </div>
     

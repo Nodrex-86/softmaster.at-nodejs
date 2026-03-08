@@ -1,5 +1,5 @@
 /**
- * SoftMaster Main JS (Vanilla Version)
+ * Softmaster Main JS (Vanilla Version)
  */
 
 let turnstileWidgetId = null;
@@ -315,8 +315,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const mouse = { x: null, y: null, radius: 150 };
 
         const resizeCanvas = () => {
-            canvas.width = canvas.offsetWidth;
-            canvas.height = canvas.offsetHeight;
+            canvas.width = window.offsetWidth;
+            canvas.height = window.offsetHeight;
             initParticles();
         };
 
